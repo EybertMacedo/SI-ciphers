@@ -10,6 +10,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route exact path="/SI-ciphers" element={<MainPage/>} />
         <Route exact path="/" element={<MainPage/>} />
         <Route path="/atbash" element={<AtbashDecoder/>} />
         <Route path="/one-time-pad" element={<OneTimePadCipher/>} />
