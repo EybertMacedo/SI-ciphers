@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/SI-ciphers/static/css/main.887b60a5.css",
-    "main.js": "/SI-ciphers/static/js/main.5c559478.js",
-    "static/media/homeIcon.png": "/SI-ciphers/static/media/homeIcon.6a20305f9d36ee864183.png",
-    "index.html": "/SI-ciphers/index.html",
-    "main.887b60a5.css.map": "/SI-ciphers/static/css/main.887b60a5.css.map",
-    "main.5c559478.js.map": "/SI-ciphers/static/js/main.5c559478.js.map"
+    "main.css": "./static/css/main.887b60a5.css",
+    "main.js": "./static/js/main.1f3cf23f.js",
+    "static/media/homeIcon.png": "./static/media/homeIcon.6a20305f9d36ee864183.png",
+    "index.html": "./index.html",
+    "main.887b60a5.css.map": "./static/css/main.887b60a5.css.map",
+    "main.1f3cf23f.js.map": "./static/js/main.1f3cf23f.js.map"
   },
   "entrypoints": [
     "static/css/main.887b60a5.css",
-    "static/js/main.5c559478.js"
+    "static/js/main.1f3cf23f.js"
   ]
 }
