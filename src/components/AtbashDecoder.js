@@ -7,17 +7,23 @@ const AtbashDecoder = () => {
   const [inputText, setInputText] = useState('');
   const [decodedText, setDecodedText] = useState('');
   const dictionary = {'a':'z','b':'y','c':'x','d':'w','e':'v','f':'u','g':'t','h':'s','i':'r','j':'q','k':'p','l':'o','m':'ñ','n':'n','ñ':'m','o':'l','p':'k','q':'j','r':'i','s':'h','t':'g','u':'f','v':'e','w':'d','x':'c','y':'b','z':'a'};
+  const preprocess_dictionary = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U','ü':'u','Ü':'U'}
 
   const decodeAtbash = () => {    
     let coded_string = inputText.toLowerCase(); 
     let decoded_string = '';
     for (let i = 0; i < coded_string.length; i++) {
-      const char = coded_string[i];
+      let char = coded_string[i];
+      if (char in preprocess_dictionary){
+        char = preprocess_dictionary[char]
+      }
       if (char in dictionary){
         decoded_string += dictionary[char];
-      } else {
-        decoded_string += char;
       }
+
+      /*else {
+        decoded_string += char;
+      }*/
     }
     
     console.log(decoded_string)
