@@ -16,6 +16,9 @@ const OneTimePadCipher = () => {
     //Preprocesamiento de la clave
     for (let i = 0; i < keyString.length; i++){
       let char = keyString[i];
+      if (char in preprocess_dictionary){
+        char = preprocess_dictionary[char]
+      }
       if (char in dictionary){
         aux += char
       }       
@@ -53,13 +56,68 @@ const OneTimePadCipher = () => {
       if (messageString[i] in dictionary) {
         const inputCharValue = dictionary[messageString[i]];
         const keyCharValue = dictionary[keyString[i]];
-        const encodedCharValue = (inputCharValue + keyCharValue)%27;
+        let encodedCharValue = (inputCharValue + keyCharValue)%27;
         encodedString += Object.keys(dictionary)[encodedCharValue];
-        //console.log(i,messageString[i], inputCharValue , keyCharValue, encodedCharValue);
-      } else {
-        encodedString += messageString[i];
+        console.log(i,messageString[i], inputCharValue , keyCharValue, encodedCharValue);
+      }      
+    }
+    setEncodedText(encodedString);
+  };
+
+  const decodeOneTimePad = () => {
+    let messageString = inputText.toLowerCase();    
+    let keyString = keyText.toLowerCase();    
+    let aux = ''
+    //Preprocesamiento de la clave
+    for (let i = 0; i < keyString.length; i++){
+      let char = keyString[i];
+      if (char in preprocess_dictionary){
+        char = preprocess_dictionary[char]
       }
-      
+      if (char in dictionary){
+        aux += char
+      }       
+    }
+    keyString = aux
+    console.log(keyString)
+
+    //Preprocesamiento del mensaje
+    aux = ''
+    for (let i = 0; i < messageString.length; i++){
+      let char = messageString[i];
+      if (char in preprocess_dictionary){
+        char = preprocess_dictionary[char]
+      }
+      if (char in dictionary){
+        aux += char
+      }      
+    }
+    messageString = aux 
+    console.log(messageString)
+
+    //En caso de que la clave sea mas pequena que el mensaje
+    while (keyString.length < messageString.length){
+      keyString += keyString
+    }
+
+    let encodedString = '';
+
+    if (messageString.length > keyText.length) {
+      alert("La longitud de la clave debe ser mayor o igual que la del texto de entrada");
+      return;
+    }
+    
+    for (let i = 0; i < messageString.length; i++) {      
+      if (messageString[i] in dictionary) {
+        const inputCharValue = dictionary[messageString[i]];
+        const keyCharValue = dictionary[keyString[i]];
+        let encodedCharValue = (inputCharValue - keyCharValue)%27;
+        if (encodedCharValue < 0) {
+          encodedCharValue += 27; // Ajuste para asegurarse de que el resultado esté dentro del rango 0-26
+      }
+        encodedString += Object.keys(dictionary)[encodedCharValue];
+        console.log(i,messageString[i], inputCharValue , keyCharValue, encodedCharValue);
+      }      
     }
     setEncodedText(encodedString);
   };
@@ -81,6 +139,7 @@ const OneTimePadCipher = () => {
         onChange={(e) => setKeyText(e.target.value)}        
       />
       <button style={{ marginLeft: '10px' }} className="button" onClick={encodeOneTimePad}>Cifrar</button>
+      <button style={{ marginLeft: '10px' }} className="button" onClick={decodeOneTimePad}>Descifrar</button>
       <div className="result">
         <h2>Mensaje cifrado:</h2>
         <p>

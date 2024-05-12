@@ -17,7 +17,7 @@ const MainPage = () => {
             <Link to="/one-time-pad" className={"mpLink"}>
               One-Time Pad Cipher
             </Link>
-            <p>Basado en XOR, combina cada carácter del texto sin formato con un carácter de una clave generada aleatoriamente, ofreciendo un cifrado irrompible.</p>
+            <p>Basado en sumatoria modular, combina cada carácter del texto sin formato con un carácter de una clave generada aleatoriamente, ofreciendo un cifrado irrompible.</p>
           </li>
         </ol>
       </div>
