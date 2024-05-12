@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SI-ciphers/static/css/main.887b60a5.css",
-    "main.js": "/SI-ciphers/static/js/main.6d0a2c9d.js",
+    "main.js": "/SI-ciphers/static/js/main.27b8288d.js",
     "static/media/homeIcon.png": "/SI-ciphers/static/media/homeIcon.6a20305f9d36ee864183.png",
     "index.html": "/SI-ciphers/index.html",
     "main.887b60a5.css.map": "/SI-ciphers/static/css/main.887b60a5.css.map",
-    "main.6d0a2c9d.js.map": "/SI-ciphers/static/js/main.6d0a2c9d.js.map"
+    "main.27b8288d.js.map": "/SI-ciphers/static/js/main.27b8288d.js.map"
   },
   "entrypoints": [
     "static/css/main.887b60a5.css",
-    "static/js/main.6d0a2c9d.js"
+    "static/js/main.27b8288d.js"
   ]
 }
